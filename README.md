@@ -8,7 +8,12 @@ No need to ssh-private-key. Need to AWS IAM Credentials only.
 ```yaml
 name: sync up to codecommit
 
-on: [push]
+on:
+  push:
+    tags-ignore:
+      - '*'
+    branches:
+      - '*'
 
 jobs:
   sync:
@@ -16,6 +21,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
