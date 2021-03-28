@@ -1,0 +1,18 @@
+name: Sync up to AWS CodeCommit Action
+description: |
+  Synchronize from GitHub repository to AWS CodeCommit via GitHub Actions.
+  No need to ssh-private-key. Need to AWS IAM Credentials only.
+author: 'youyo <1003ni@gmail.com>'
+branding:
+  icon: terminal
+  color: yellow
+inputs:
+  repository_name:
+    description: CodeCommit repository name.
+    required: true
+  aws_region:
+    description: Region of the CodeCommit repository.
+    required: true
+runs:
+  using: 'docker'
+  image: './Dockerfile'
