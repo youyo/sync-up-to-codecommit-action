@@ -13,7 +13,7 @@ fi
 CodeCommitUrl="https://git-codecommit.${AwsRegion}.${AwsDomain}/v1/repos/${RepositoryName}"
 
 git config --global --add safe.directory /github/workspace
-git config credential."https://git-codecommit.${AwsRegion}.${AwsDomain}".helper '!aws codecommit credential-helper $@'
+git config --global credential."https://git-codecommit.${AwsRegion}.${AwsDomain}".helper '!aws codecommit credential-helper $@'
 git config --global credential.UseHttpPath true
 git remote add sync ${CodeCommitUrl}
 git push sync --mirror
